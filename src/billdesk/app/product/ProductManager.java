@@ -7,9 +7,16 @@ import java.util.Iterator;
 
 public class ProductManager {
     private ArrayList<Product> productList;
-
+    private FileWriter fout;
     public ProductManager()
     {
+        try{
+            fout  = new FileWriter("Mydb.txt");
+        }
+        catch (Exception e)
+        {
+
+        }
 
         this.productList = new ArrayList<Product>();
     }
@@ -22,6 +29,14 @@ public class ProductManager {
     {
         Product newProduct = new Product(this.getProductCount()+1,name);
         productList.add(newProduct);
+        try{
+            this.fout.write("P1 2000");
+            this.fout.close();
+        }catch (Exception e)
+        {
+
+        }
+
     }
     public void addProduct(String name,float price)
     {
